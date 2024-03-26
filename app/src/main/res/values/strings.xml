@@ -1,0 +1,99 @@
+<resources>
+    <string name="app_name">NewsNexus</string>
+
+    <string name="tvDummy_NewsTitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</string>
+    <string name="tvDummy_NewsAuthor">Dummy Author</string>
+    <string name="tvDummy_NewsPublished">DD MMM YYYY</string>
+    <string name="tvDummy_NewsContent">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ante metus dictum at tempor commodo ullamcorper a lacus vestibulum. Imperdiet massa tincidunt nunc pulvinar. Mi sit amet mauris commodo. Arcu dui vivamus arcu felis bibendum. Ornare arcu dui vivamus arcu. Leo urna molestie at elementum eu facilisis sed. At elementum eu facilisis sed odio. Ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget. Massa enim nec dui nunc mattis enim ut. Id interdum velit laoreet id donec ultrices tincidunt. Duis at tellus at urna condimentum mattis pellentesque id. Augue neque gravida in fermentum et sollicitudin ac orci.\nTurpis tincidunt id aliquet risus feugiat in ante. In massa tempor nec feugiat nisl pretium fusce. Accumsan in nisl nisi scelerisque eu ultrices. Scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam. Commodo odio aenean sed adipiscing diam donec adipiscing tristique risus. Amet facilisis magna etiam tempor orci eu lobortis elementum. Mauris augue neque gravida in fermentum et sollicitudin ac. Dignissim sodales ut eu sem integer. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim. Vitae tempus quam pellentesque nec nam aliquam. Tristique senectus et netus et. Sit amet consectetur adipiscing elit duis tristique. Eu mi bibendum neque egestas congue quisque egestas diam. Varius quam quisque id diam vel quam elementum.</string>
+    <string name="tvDummy_NewsPublishedBy">Published by : %s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="tvPopUpDescription">Oops! Something went wrong.\nPlease try again</string>
+    <string name="btnTxt_popup">OK</string>
+    <string name="tvAboutDescription">Berdiri sejak tidak kebagian kursi</string>
+    <string name="menu_about">About</string>
+    <string name="tvDummy_NewsDescription">\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra vitae congue eu consequat ac felis donec et.\"</string>
+
+    <string name="tvDummy_Title">Dummy Title</string>
+    <string name="tvCredit">NewsNexus © 2024 - V1.0.0</string>
+    <string name="tvBtn_SignIn">Sign In</string>
+    <string name="tvTitle_Email">Email</string>
+    <string name="tvTitle_Password">Password</string>
+    <string name="tvDummy_PopupDescription">Lorem ipsum dolor sit amet et dolore magna aliqua.</string>
+    <string name="tvPopup_SuccessLogin">Lorem ipsum dolor sit amet et dolore magna aliqua.</string>
+    <string name="tvPopupTitle_Success">Success</string>
+    <string name="tvPopupDesc_ProcessSuccess">Your process is success</string>
+    <string name="tvPopupDesc_LoginSuccess">Congratulations! You\'ve successfully logged in.</string>
+    <string name="tvPopupTitle_Logout">Log Out</string>
+    <string name="tvPopupDesc_Logout">Are you sure you want to log out?</string>
+    <string name="tvPopupDesc_LogoutSuccess">Congratulations! You\'ve successfully logged out.</string>
+    <string name="tvPopupTitle_Unauthorized">Session Expired</string>
+    <string name="tvPopupDesc_Unauthorized">Please log in again to continue.</string>
+    <string name="tvMenu_home">Home</string>
+    <string name="tvMenu_leads">Leads</string>
+    <string name="tvMenu_shop">Shop</string>
+    <string name="tvMenu_account">Account</string>
+    <string name="tvDummy_Name">Arbi Mauday</string>
+    <string name="tvDummy_Email">arbi@example.com</string>
+    <string name="tvDummy_BranchTitle">Branch</string>
+    <string name="tvDummy_BranchDesc">GlobalXtreme Bali</string>
+    <string name="btnTxt_Logout">Log Out</string>
+    <string name="btnTxt_Cancel">Cancel</string>
+    <string name="tvDummy_DivisionTitle">Division</string>
+    <string name="tvDummy_DivisionDesc">Sales</string>
+    <string name="tvDummy_PositionTitle">Job Position</string>
+    <string name="tvDummy_PositionDesc">Senior Sales</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tvDummy_ToolbarTitle">Add Lead</string>
+    <string name="tvToolbarTitle_Leads">Leads</string>
+    <string name="tvToolbarTitle_AddLeads">Add Leads</string>
+    <string name="tvToolbarTitle_Shop">Item Shop</string>
+    <string name="tvDummy_DateRange">01 Jan 2024 – 31 Jan 2024</string>
+    <string name="tvDummy_ProductName">A810R AC1200 Router</string>
+    <string name="tvDummy_ProductPrice">Rp 56.000.000.000 / pcs</string>
+    <string name="tvTitle_ProductStock">Stock :</string>
+    <string name="tvDummy_ProductStock">3 Pcs</string>
+    <string name="tvTitle_TypeProduct">Type :</string>
+    <string name="tvDummy_ProductType">Onu |</string>
+    <string name="tvTitle_TaxProduct">w/Tax :</string>
+    <string name="tvDummy_ProductTax">Rp 56.600 (11%)</string>
+    <string name="tvFormat_ProductPrice">Rp %s / pcs</string>
+    <string name="tvFormat_ProductStock">%d Pcs</string>
+    <string name="tvFormat_ProductTax">Rp %s (11%%)</string>
+    <string name="tvHint_SearchShop">Search…</string>
+    <string name="tvHint_SearchLead">e.g John Doe</string>
+    <string name="tvDummy_SummaryCount">15</string>
+    <string name="tvDummy_SummaryName">Total All Leads</string>
+    <string name="btnTxt_Filter">Filter</string>
+    <string name="tvDummy_LeadName">I Ketut Yuli Adi Saputra</string>
+    <string name="tvDummy_LeadNumber">#LD0124101715</string>
+    <string name="tvDummy_LeadAddress">Jl. Tukad Balian Gg. Nuri III No.9, Renon, Denpasar Selatan, Kota Denpasar, Bali 80227, Indonesia</string>
+    <string name="tvDummy_LeadStatus">Scheduled</string>
+    <string name="tvDummy_LeadProbability">Pending</string>
+    <string name="tvDummy_LeadCreatedAt">02 January 2024</string>
+    <string name="tvDummy_LeadBranchOffice">GlobalXtreme Bali</string>
+    <string name="btnTxt_Previous">Previous</string>
+    <string name="btnTxt_Submit">Submit</string>
+    <string name="etTxt_FullName">Full Name<font color="#FF0000">*</font></string>
+    <string name="etTxt_Email">Email</string>
+    <string name="etTxt_PhoneNumber">Cell Phone Number<font color="#FF0000">*</font></string>
+    <string name="etTxt_Address">Address</string>
+    <string name="etTxt_Latitude">Latitude <font color="#FF0000">*</font></string>
+    <string name="etTxt_Longitude">Longitude <font color="#FF0000">*</font></string>
+    <string name="radioTxt_Gender">Choose Gender ?</string>
+    <string name="etTxt_IdentityNumber">Identity Number</string>
+    <string name="fuTxt_UploadIdentity">Upload Identity / Passport</string>
+    <string name="drpdwnTxt_LeadType">Lead Type<font color='#FF0000'>*</font></string>
+    <string name="tvTitle_BranchOffice">Branch Office</string>
+    <string name="tvTitle_PersonalData">Personal Data</string>
+    <string name="tvCountryCode_ID">+62</string>
+    <string name="btnTxt_SelectLocation">Select Location</string>
+    <string name="tvDropdown_BranchOffice">- Select Branch Office -</string>
+    <string name="tvHint_FullName">e.g John Doe</string>
+    <string name="tvHint_Email">e.gjohn@example.com</string>
+    <string name="tvHint_PhoneNum">879993xxxx</string>
+    <string name="tvHint_Address">e.g Jl Kerobokan 388x</string>
+    <string name="tvHint_Latitude">e.g -8.44444</string>
+    <string name="tvHint_Longitude">e.g 115.00003</string>
+    <string name="tvHint_IDNumber">e.g 1879920xxxxxx</string>
+</resources>
