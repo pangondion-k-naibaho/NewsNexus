@@ -73,7 +73,7 @@ class Constants {
                 const val TECHNOLOGY = "technology"
 
                 enum class CATEGORY_ENUM{
-                    All, Business, Entertainment, General, Health, Science, Sports, Technology
+                    General, Business, Entertainment, Health, Science, Sports, Technology
                 }
             }
         }

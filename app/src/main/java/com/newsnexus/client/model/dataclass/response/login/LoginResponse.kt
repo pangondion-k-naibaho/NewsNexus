@@ -1,4 +1,4 @@
-package com.newsnexus.client.model.dataclass.response
+package com.newsnexus.client.model.dataclass.response.login
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

@@ -11,7 +11,10 @@
     <string name="btnTxt_popup">OK</string>
     <string name="tvAboutDescription">Berdiri sejak tidak kebagian kursi</string>
     <string name="menu_about">About</string>
+    <string name="menu_cns">Critique &amp; Suggestions</string>
+    <string name="menu_logOut">Log Out</string>
     <string name="tvDummy_NewsDescription">\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra vitae congue eu consequat ac felis donec et.\"</string>
+    <string name="tvDetail_NoDescription">---No Description---</string>
 
     <string name="tvDummy_Title">Dummy Title</string>
     <string name="tvCredit">NewsNexus © 2024 - V1.0.0</string>
@@ -28,6 +31,8 @@
     <string name="tvPopupDesc_LogoutSuccess">Congratulations! You\'ve successfully logged out.</string>
     <string name="tvPopupTitle_Unauthorized">Session Expired</string>
     <string name="tvPopupDesc_Unauthorized">Please log in again to continue.</string>
+    <string name="tvPopupTitle_FailRetrieve">Failed</string>
+    <string name="tvPopupDesc_FailRetrieve">Failed to retrieved data</string>
     <string name="tvMenu_home">Home</string>
     <string name="tvMenu_leads">Leads</string>
     <string name="tvMenu_shop">Shop</string>

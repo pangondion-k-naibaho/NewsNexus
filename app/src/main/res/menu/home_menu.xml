@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menuAbout"
+        android:title="@string/menu_about"
+        android:icon="@drawable/ic_info_grey"/>
+
+    <item
+        android:id="@+id/menuCnS"
+        android:title="@string/menu_cns"
+        android:icon="@drawable/ic_chat_grey"/>
+
+    <item
+    android:id="@+id/menuLogout"
+    android:title="@string/menu_logOut"
+    android:icon="@drawable/ic_logout_grey"/>
+
+</menu>

@@ -16,7 +16,7 @@ import com.newsnexus.client.model.Constants.PREFERENCES.Companion.TOKEN_KEY
 import com.newsnexus.client.model.Constants.PREFERENCES.Companion.USERNAME_KEY
 import com.newsnexus.client.model.Constants.STATUS.Companion.STATUS_SUCCESS
 import com.newsnexus.client.model.dataclass.request.LoginRequest
-import com.newsnexus.client.model.dataclass.response.LoginResponse
+import com.newsnexus.client.model.dataclass.response.login.LoginResponse
 import com.newsnexus.client.view.activity.Home.HomeActivity
 import com.newsnexus.client.view.advanced_ui.InputTextView
 import com.newsnexus.client.viewmodel.LoginViewModel
