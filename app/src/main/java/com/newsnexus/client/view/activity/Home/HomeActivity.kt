@@ -21,6 +21,7 @@ import com.newsnexus.client.model.Constants.PREFERENCES.Companion.APP_PREFERENCE
 import com.newsnexus.client.model.Constants.PREFERENCES.Companion.TOKEN_KEY
 import com.newsnexus.client.model.Constants.PREFERENCES.Companion.USERNAME_KEY
 import com.newsnexus.client.view.activity.About.AboutActivity
+import com.newsnexus.client.view.activity.CritiqueSugesstions.CritiqueSuggestionActivity
 import com.newsnexus.client.view.activity.Login.LoginActivity
 import com.newsnexus.client.viewmodel.HomeViewModel
 import com.newssphere.client.view.advanced_ui.InputSearchView
@@ -83,7 +84,12 @@ class HomeActivity : AppCompatActivity(), CategoriesHomeCommunicator {
                                     )
                                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
                                 }
-                                R.id.menuCnS ->{}
+                                R.id.menuCnS ->{
+                                    startActivity(
+                                        CritiqueSuggestionActivity.newIntent(this@HomeActivity)
+                                    )
+                                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+                                }
                                 R.id.menuLogout ->{
                                     setForPopUpDisplaying(true)
                                     this@HomeActivity.showPopupDialog(

@@ -1,4 +1,4 @@
-package com.newsnexus.client.model.dataclass
+package com.newsnexus.client.model.dataclass.dummy
 
 import android.os.Parcelable
 import androidx.room.Entity

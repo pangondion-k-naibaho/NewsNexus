@@ -4,8 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.newsnexus.client.model.dataclass.User
-import com.newsnexus.client.model.dataclass.request.LoginRequest
+import com.newsnexus.client.model.dataclass.dummy.User
 
 @Dao
 interface LoginDao {

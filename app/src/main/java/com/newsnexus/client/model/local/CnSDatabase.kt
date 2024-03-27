@@ -4,23 +4,23 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.newsnexus.client.model.dataclass.dummy.User
+import com.newsnexus.client.model.dataclass.dummy.CritiqueSuggestions
 
 @Database(
-    entities = [User::class],
+    entities = [CritiqueSuggestions::class],
     version = 1
 )
-abstract class LoginDatabase: RoomDatabase() {
+abstract class CnSDatabase: RoomDatabase() {
     companion object{
-        private var INSTANCE : LoginDatabase?= null
+        private var INSTANCE : CnSDatabase?= null
 
-        fun getDatabase(context: Context): LoginDatabase?{
+        fun getDatabase(context: Context): CnSDatabase?{
             if(INSTANCE == null){
-                synchronized(LoginDatabase::class.java){
+                synchronized(CnSDatabase::class.java){
                     INSTANCE = Room.databaseBuilder(
                         context.applicationContext,
-                        LoginDatabase::class.java,
-                        "Login"
+                        CnSDatabase::class.java,
+                        "CnS"
                     ).allowMainThreadQueries().build()
                 }
             }
@@ -28,5 +28,5 @@ abstract class LoginDatabase: RoomDatabase() {
         }
     }
 
-    abstract fun loginDao():LoginDao
+    abstract fun cnsDao():CnsDao
 }

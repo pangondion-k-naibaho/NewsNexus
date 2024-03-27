@@ -101,4 +101,5 @@
     <string name="tvHint_Latitude">e.g -8.44444</string>
     <string name="tvHint_Longitude">e.g 115.00003</string>
     <string name="tvHint_IDNumber">e.g 1879920xxxxxx</string>
+    <string name="tvDataEmpty">There is no Comment &amp; Suggestion.\nAdd yours and we will display it here</string>
 </resources>

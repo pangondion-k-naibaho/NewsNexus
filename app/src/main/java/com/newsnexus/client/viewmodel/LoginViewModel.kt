@@ -10,7 +10,7 @@ import androidx.lifecycle.MutableLiveData
 import com.newsnexus.client.model.Constants.KEY.Companion.NEWSAPI_KEY
 import com.newsnexus.client.model.Constants.STATUS.Companion.STATUS_ERROR
 import com.newsnexus.client.model.Constants.STATUS.Companion.STATUS_SUCCESS
-import com.newsnexus.client.model.dataclass.User
+import com.newsnexus.client.model.dataclass.dummy.User
 import com.newsnexus.client.model.dataclass.request.LoginRequest
 import com.newsnexus.client.model.dataclass.response.login.LoginResponse
 import com.newsnexus.client.model.local.LoginDao

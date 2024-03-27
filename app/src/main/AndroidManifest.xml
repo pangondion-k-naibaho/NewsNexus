@@ -15,6 +15,9 @@
         android:theme="@style/Theme.NewsNexus"
         tools:targetApi="31">
         <activity
+            android:name=".view.activity.CritiqueSugesstions.CritiqueSuggestionActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.activity.Detail.DetailActivity"
             android:exported="false" />
         <activity

@@ -1,6 +1,6 @@
 package com.newsnexus.client.model
 
-import com.newsnexus.client.model.dataclass.User
+import com.newsnexus.client.model.dataclass.dummy.User
 
 class Constants {
 

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_circular_rectangle_white"
+    android:padding="16dp"
+    android:layout_marginVertical="2dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivUser"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="5dp"
+        android:src="@drawable/ic_person_socialist"
+        android:background="@drawable/bg_circle_grey_white"/>
+
+    <TextView
+        android:id="@+id/tvUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/ivUser"
+        app:layout_constraintTop_toTopOf="@+id/ivUser"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/merriweather_regular"
+        android:textColor="@color/stormy_mauve"
+        android:textSize="16sp"
+        android:text="Dummy Username"/>
+
+    <TextView
+        android:id="@+id/tvCritiqueTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/tvUsername"
+        app:layout_constraintTop_toBottomOf="@+id/tvUsername"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/inter_medium"
+        android:textColor="@color/stormy_mauve"
+        android:textSize="13sp"
+        android:text="Critique :"/>
+
+    <TextView
+        android:id="@+id/tvCritiqueDesc"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toEndOf="@+id/tvCritiqueTitle"
+        app:layout_constraintTop_toTopOf="@id/tvCritiqueTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/ivUser"
+        android:layout_marginStart="25dp"
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:fontFamily="@font/inter_medium"
+        android:textColor="@color/stormy_mauve"
+        android:textSize="13sp"
+        android:text="@string/tvDummy_NewsDescription"/>
+
+    <TextView
+        android:id="@+id/tvSuggestionTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/tvCritiqueTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvCritiqueDesc"
+        app:layout_constraintEnd_toEndOf="@+id/tvCritiqueTitle"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/inter_medium"
+        android:textColor="@color/stormy_mauve"
+        android:textSize="13sp"
+        android:text="Suggestion :"/>
+
+    <TextView
+        android:id="@+id/tvSuggestionDesc"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        app:layout_constraintStart_toStartOf="@+id/tvCritiqueDesc"
+        app:layout_constraintTop_toTopOf="@id/tvSuggestionTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:fontFamily="@font/inter_medium"
+        android:textColor="@color/stormy_mauve"
+        android:textSize="13sp"
+        android:text="@string/tvDummy_NewsDescription"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
