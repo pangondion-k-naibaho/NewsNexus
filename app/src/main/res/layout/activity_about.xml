@@ -27,13 +27,25 @@
         android:src="@drawable/newsnexus_logo_e1"/>
 
     <TextView
-        android:id="@+id/tvAbout"
+        android:id="@+id/tvUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivAbout"
         android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        android:fontFamily="@font/merriweathersans_variablefont_wght"
+        android:text="@string/tvCredit"/>
+
+    <TextView
+        android:id="@+id/tvCredit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="10dp"
         android:textSize="18sp"
         android:fontFamily="@font/merriweathersans_variablefont_wght"
         android:text="@string/tvCredit"/>

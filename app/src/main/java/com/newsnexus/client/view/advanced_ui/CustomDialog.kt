@@ -89,7 +89,7 @@ fun Activity.showPopupDialog(
     listener: PopUpDialogListener?= null
 ){
     val dialog = Dialog(this)
-    val binding = PopupQuestionLayoutBinding.bind(layoutInflater.inflate(R.layout.popup_notification_layout, null))
+    val binding = PopupQuestionLayoutBinding.bind(layoutInflater.inflate(R.layout.popup_question_layout, null))
     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
     dialog.window?.setLayout(
         ViewGroup.LayoutParams.MATCH_PARENT,
@@ -103,15 +103,18 @@ fun Activity.showPopupDialog(
         tvPopUpDescription.text = textDesc
         ivPopUp.background = ContextCompat.getDrawable(this@showPopupDialog, backgroundImage)
         btnLeft.apply {
-            text
+            text = btnTextLeft
             setOnClickListener {
                 listener?.onLeftButtonClickListener()
                 dialog.dismiss()
             }
         }
-        btnRight.setOnClickListener {
-            listener?.onRightButtonClickListener()
-            dialog.dismiss()
+        btnRight.apply {
+            text = btnTextRight
+            setOnClickListener {
+                listener?.onRightButtonClickListener()
+                dialog.dismiss()
+            }
         }
         if(!isFinishing) dialog.show()
     }

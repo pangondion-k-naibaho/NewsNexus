@@ -1,5 +1,7 @@
 package com.newsnexus.client.viewmodel
 
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -17,6 +19,9 @@ class HomeViewModel: ViewModel() {
 
     private var _isFail = MutableLiveData<Boolean>()
     val isFail: LiveData<Boolean> = _isFail
+
+    private var _isLogoutSuccess = MutableLiveData<Boolean>()
+    val isLogoutSuccess: LiveData<Boolean> = _isLogoutSuccess
 
     private var _newsCollection = MutableLiveData<NewsCollection>()
     val newsCollection : LiveData<NewsCollection> = _newsCollection
@@ -80,5 +85,15 @@ class HomeViewModel: ViewModel() {
             }
 
         })
+    }
+
+    fun logOutUser(){
+        _isLoading.value = true
+        val handler = Handler(Looper.getMainLooper())
+        handler.postDelayed({
+            _isLoading.value = false
+            _isLogoutSuccess.value = true
+        }, 4000)
+
     }
 }

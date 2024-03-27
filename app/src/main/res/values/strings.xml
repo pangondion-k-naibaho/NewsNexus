@@ -95,7 +95,7 @@
     <string name="btnTxt_SelectLocation">Select Location</string>
     <string name="tvDropdown_BranchOffice">- Select Branch Office -</string>
     <string name="tvHint_FullName">e.g John Doe</string>
-    <string name="tvHint_Email">e.gjohn@example.com</string>
+    <string name="tvHint_Email">e.g john@example.com</string>
     <string name="tvHint_PhoneNum">879993xxxx</string>
     <string name="tvHint_Address">e.g Jl Kerobokan 388x</string>
     <string name="tvHint_Latitude">e.g -8.44444</string>

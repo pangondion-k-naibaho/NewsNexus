@@ -52,6 +52,7 @@ class LoginActivity : AppCompatActivity() {
             setInputType(InputTextView.INPUT_TYPE.EMAIL)
             Log.d(TAG, "inputType itvEmail: ${binding.itvEmail.getInputType()}")
             setTitle(getString(R.string.tvTitle_Email))
+            setTextHelper(getString(R.string.tvHint_Email))
             setListener(null)
         }
 

@@ -47,7 +47,7 @@
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="20dp"
+            android:paddingHorizontal="30dp"
             android:gravity="center"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -58,7 +58,8 @@
             android:text="@string/tvBtn_SignIn"
             android:textAllCaps="false"
             android:textSize="14sp"
-            android:drawableEnd="@drawable/ic_login"/>
+            android:textColor="@color/white"
+            android:drawableEnd="@drawable/ic_login_white"/>
 
         <TextView
             android:id="@+id/tvCredit"

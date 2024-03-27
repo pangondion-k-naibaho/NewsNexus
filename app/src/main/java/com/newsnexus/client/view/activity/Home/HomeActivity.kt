@@ -2,12 +2,14 @@ package com.newsnexus.client.view.activity.Home
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.PopupMenu
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
@@ -15,9 +17,17 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.newsnexus.client.R
 import com.newsnexus.client.databinding.ActivityHomeBinding
 import com.newsnexus.client.model.Constants
+import com.newsnexus.client.model.Constants.PREFERENCES.Companion.APP_PREFERENCES
+import com.newsnexus.client.model.Constants.PREFERENCES.Companion.TOKEN_KEY
+import com.newsnexus.client.model.Constants.PREFERENCES.Companion.USERNAME_KEY
 import com.newsnexus.client.view.activity.About.AboutActivity
+import com.newsnexus.client.view.activity.Login.LoginActivity
 import com.newsnexus.client.viewmodel.HomeViewModel
 import com.newssphere.client.view.advanced_ui.InputSearchView
+import com.newssphere.client.view.advanced_ui.PopUpDialogListener
+import com.newssphere.client.view.advanced_ui.PopUpNotificationListener
+import com.newssphere.client.view.advanced_ui.showPopupDialog
+import com.newssphere.client.view.advanced_ui.showPopupNotification
 
 class HomeActivity : AppCompatActivity(), CategoriesHomeCommunicator {
     private val TAG = HomeActivity::class.java.simpleName
@@ -25,6 +35,8 @@ class HomeActivity : AppCompatActivity(), CategoriesHomeCommunicator {
     private val homeViewModel by viewModels<HomeViewModel>()
     private var selectedFragment: Fragment?= null
     private var retrievedInput: String?= null
+    private lateinit var appPreferences: SharedPreferences
+    private var userToken: String? = null
 
     companion object{
         fun newIntent(context: Context):Intent = Intent(context, HomeActivity::class.java)
@@ -34,6 +46,7 @@ class HomeActivity : AppCompatActivity(), CategoriesHomeCommunicator {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        appPreferences = this@HomeActivity.getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE)
         initView()
     }
 
@@ -71,7 +84,62 @@ class HomeActivity : AppCompatActivity(), CategoriesHomeCommunicator {
                                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
                                 }
                                 R.id.menuCnS ->{}
-                                R.id.menuLogout ->{}
+                                R.id.menuLogout ->{
+                                    setForPopUpDisplaying(true)
+                                    this@HomeActivity.showPopupDialog(
+                                        textTitle = getString(R.string.tvPopupTitle_Logout),
+                                        textDesc = getString(R.string.tvPopupDesc_Logout),
+                                        backgroundImage = R.drawable.ic_logout,
+                                        btnTextRight = getString(R.string.btnTxt_Cancel),
+                                        btnTextLeft = getString(R.string.btnTxt_Logout),
+                                        listener = object: PopUpDialogListener{
+                                            override fun onLeftButtonClickListener() {
+                                                this@HomeActivity.closeOptionsMenu()
+                                                setForPopUpDisplaying(false)
+                                                homeViewModel.logOutUser()
+                                                homeViewModel.isLoading.observe(this@HomeActivity, {
+                                                    if(it) setForLoading(true) else setForLoading(false)
+                                                })
+                                                homeViewModel.isLogoutSuccess.observe(this@HomeActivity, {
+                                                    if(it){
+                                                        val editor = appPreferences.edit()
+                                                        editor.remove(TOKEN_KEY)
+                                                        editor.remove(USERNAME_KEY)
+                                                        editor.apply()
+                                                        if(editor.commit()){
+                                                            setForPopUpDisplaying(true)
+                                                            showPopupNotification(
+                                                                textTitle = getString(R.string.tvPopupTitle_Success),
+                                                                textDesc = getString(R.string.tvPopupDesc_LogoutSuccess),
+                                                                backgroundImage = R.drawable.ic_checklist_green,
+                                                                listener = object: PopUpNotificationListener{
+                                                                    override fun onClickListener() {
+                                                                        this@HomeActivity.closeOptionsMenu()
+                                                                        startActivity(
+                                                                            LoginActivity.newIntent(this@HomeActivity)
+                                                                        )
+                                                                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+                                                                        finish()
+
+                                                                    }
+                                                                }
+                                                            )
+                                                        }
+                                                    }else{
+                                                        Toast.makeText(this@HomeActivity, "Failed to Log Out", Toast.LENGTH_SHORT)
+                                                            .show()
+                                                    }
+                                                })
+                                            }
+
+                                            override fun onRightButtonClickListener() {
+                                                this@HomeActivity.closeOptionsMenu()
+                                                setForPopUpDisplaying(false)
+                                            }
+
+                                        }
+                                    )
+                                }
                             }
                             return true
                         }

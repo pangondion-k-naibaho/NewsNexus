@@ -12,6 +12,7 @@ import com.newsnexus.client.R
 import com.newsnexus.client.databinding.ActivityLoadScreenBinding
 import com.newsnexus.client.model.Constants.PREFERENCES.Companion.APP_PREFERENCES
 import com.newsnexus.client.model.Constants.PREFERENCES.Companion.TOKEN_KEY
+import com.newsnexus.client.model.Constants.PREFERENCES.Companion.USERNAME_KEY
 import com.newsnexus.client.view.activity.Home.HomeActivity
 import com.newsnexus.client.view.activity.Login.LoginActivity
 
@@ -38,8 +39,9 @@ class LoadScreenActivity : Activity() {
 //            finish()
             val appPreferences = this@LoadScreenActivity.getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE)
             val retrievedToken = appPreferences.getString(TOKEN_KEY, null)
+            val retrievedUsername = appPreferences.getString(USERNAME_KEY, null)
 
-            if(retrievedToken.isNullOrEmpty()){
+            if(retrievedToken.isNullOrEmpty() || retrievedUsername.isNullOrEmpty()){
                 startActivity(LoginActivity.newIntent(this@LoadScreenActivity))
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
                 finish()
