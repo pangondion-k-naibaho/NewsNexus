@@ -47,7 +47,9 @@ class CritiqueSuggestionActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbarCnS)
         supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_back_socialist)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.setDisplayShowTitleEnabled(false)
+        supportActionBar!!.setDisplayShowTitleEnabled(true)
+
+        supportActionBar!!.setTitle(getString(R.string.tvTitle_Critiques_n_SUggestions))
 
         appPreferences = this@CritiqueSuggestionActivity.getSharedPreferences(Constants.PREFERENCES.APP_PREFERENCES, Context.MODE_PRIVATE)
         retrievedUsername = appPreferences.getString(Constants.PREFERENCES.USERNAME_KEY, null)
@@ -58,17 +60,7 @@ class CritiqueSuggestionActivity : AppCompatActivity() {
     }
 
     private fun initView(){
-        csViewModel.getListCnS()
-
-        csViewModel.isLoading.observe(this@CritiqueSuggestionActivity, {
-            if(it) setForLoading(true) else setForLoading(false)
-        })
-
-        csViewModel.isFail.observe(this@CritiqueSuggestionActivity, {
-            if(it) Log.e(TAG, "isFail: $it") else Log.d(TAG, "isFail: $it")
-        })
-
-        csViewModel.listCnS.observe(this@CritiqueSuggestionActivity, { listCnSResponse->
+        csViewModel.getListCnS_e1().observe(this@CritiqueSuggestionActivity, { listCnSResponse->
             Log.d(TAG, "listCnSResponse: $listCnSResponse")
             if(!listCnSResponse.isNullOrEmpty()){
                 val rvAdapter = ItemCnSAdapter(listCnSResponse.toMutableList())
@@ -84,6 +76,14 @@ class CritiqueSuggestionActivity : AppCompatActivity() {
                 binding.rvCnS.visibility = View.GONE
                 binding.tvEmptyData.visibility = View.VISIBLE
             }
+        })
+
+        csViewModel.isLoading.observe(this@CritiqueSuggestionActivity, {
+            if(it) setForLoading(true) else setForLoading(false)
+        })
+
+        csViewModel.isFail.observe(this@CritiqueSuggestionActivity, {
+            if(it) Log.e(TAG, "isFail: $it") else Log.d(TAG, "isFail: $it")
         })
     }
 
@@ -117,6 +117,10 @@ class CritiqueSuggestionActivity : AppCompatActivity() {
             R.id.menu_addCnS ->{
                 setUpBottomSheet()
                 true
+            }
+            android.R.id.home ->{
+                onBackPressed()
+                return true
             }
             else -> super.onOptionsItemSelected(item)
         }
@@ -161,7 +165,7 @@ class CritiqueSuggestionActivity : AppCompatActivity() {
                 Log.d(TAG, "$retrievedUsername $retrievedCritique $retrievedSuggestion")
 
                 bottomSheetDialog.dismiss()
-                csViewModel.addCritiquenSuggestion(CritiqueSuggestions(retrievedUsername!!, retrievedCritique, retrievedSuggestion))
+                csViewModel.addCritiquenSuggestion(CritiqueSuggestions(0, retrievedUsername!!, retrievedCritique, retrievedSuggestion))
 
                 csViewModel.isAddCnSSuccess.observe(this@CritiqueSuggestionActivity, {
                     setForPopUpDisplaying(true)
@@ -180,20 +184,6 @@ class CritiqueSuggestionActivity : AppCompatActivity() {
             }
 
         }
-
-        bottomSheetDialog.setOnCancelListener(object: DialogInterface.OnCancelListener{
-            override fun onCancel(dialog: DialogInterface?) {
-                this@CritiqueSuggestionActivity.recreate()
-            }
-
-        })
-
-        bottomSheetDialog.setOnDismissListener(object: DialogInterface.OnDismissListener{
-            override fun onDismiss(dialog: DialogInterface?) {
-                this@CritiqueSuggestionActivity.recreate()
-            }
-
-        })
 
         bottomSheetDialog.show()
     }

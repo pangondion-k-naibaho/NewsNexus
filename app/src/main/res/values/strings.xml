@@ -108,4 +108,5 @@
     <string name="tvTitle_Suggestion">Suggestion :</string>
     <string name="tvHint_Critique">My critique is…</string>
     <string name="tvHint_Suggestion">My Suggestion is…</string>
+    <string name="tvTitle_Critiques_n_SUggestions">Critiques &amp; Suggestions</string>
 </resources>

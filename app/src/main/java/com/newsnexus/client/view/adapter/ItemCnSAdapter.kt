@@ -15,7 +15,9 @@ class ItemCnSAdapter(
         val binding = ItemCnsLayoutBinding.bind(itemView)
 
         fun bind (item: CritiqueSuggestions) = with(itemView){
-
+            binding.tvUsername.text = item.userName
+            binding.tvCritiqueDesc.text = item.critique
+            binding.tvSuggestionDesc.text = item.suggestion
         }
     }
 

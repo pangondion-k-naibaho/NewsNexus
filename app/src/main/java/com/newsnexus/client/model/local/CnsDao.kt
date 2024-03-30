@@ -10,7 +10,7 @@ import com.newsnexus.client.model.dataclass.dummy.CritiqueSuggestions
 @Dao
 interface CnsDao {
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addCnS(critiqueSuggestions: CritiqueSuggestions)
 
     @Query("SELECT * FROM CnS")

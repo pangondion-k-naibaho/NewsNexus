@@ -31,33 +31,33 @@ class CritiqueSuggestionViewModel(application: Application):AndroidViewModel(app
     private var _listCnS = MutableLiveData<List<CritiqueSuggestions>>()
     val listCnS: LiveData<List<CritiqueSuggestions>> = _listCnS
 
+    init {
+        cnsDao = cnsDB?.cnsDao()
+    }
+
     fun addCritiquenSuggestion(inputCnS: CritiqueSuggestions){
         _isLoading.value = true
 
         val work = CoroutineScope(Dispatchers.IO).launch {
             cnsDao?.addCnS(inputCnS)
-        }
-
-        if(work.isCompleted){
-            _isLoading.value = false
-            _isAddCnSSuccess.value = true
+            _isLoading.postValue(false)
+            _isAddCnSSuccess.postValue(true)
         }
 
     }
 
-    fun getListCnS(){
+    fun getListCnS_e1(): LiveData<List<CritiqueSuggestions>>{
         _isLoading.value = true
-        val handler = Handler(Looper.getMainLooper())
+        val list = listOf<CritiqueSuggestions>()
+        _listCnS.value = list
 
-        handler.postDelayed({
-            val retrievedListCnS = cnsDao?.getListCnS()!!.value
-//            _listCnS.value = retrievedListCnS!!
-            try {
-                _listCnS.value = retrievedListCnS!!
-            }catch (e: NullPointerException){
-                _listCnS.value = listOf<CritiqueSuggestions>()
-            }
-            _isLoading.value = false
-        }, 4000)
+        _isLoading.value = false
+
+        return try {
+            cnsDao?.getListCnS()!!
+        }catch (e: Exception){
+            _listCnS
+
+        }
     }
 }

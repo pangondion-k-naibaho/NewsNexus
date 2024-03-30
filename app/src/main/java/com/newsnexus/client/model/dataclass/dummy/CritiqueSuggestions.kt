@@ -9,8 +9,11 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 @Entity(tableName = "CnS")
 data class CritiqueSuggestions(
+    @PrimaryKey(autoGenerate = true)
+    @field:SerializedName("id")
+    val id: Int,
+
     @field:SerializedName("username")
-    @PrimaryKey(autoGenerate = false)
     val userName: String,
 
     @field:SerializedName("critique")
