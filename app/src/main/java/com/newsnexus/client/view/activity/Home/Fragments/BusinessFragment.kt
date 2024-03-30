@@ -20,7 +20,6 @@ import com.newsnexus.client.view.activity.Home.HomeCategoriesCommunicator
 import com.newsnexus.client.view.adapter.ItemNewsAdapter
 import com.newsnexus.client.viewmodel.HomeViewModel
 import com.newssphere.client.model.data_class.Article
-import com.newssphere.client.view.advanced_ui.PopUpDialogListener
 import com.newssphere.client.view.advanced_ui.PopUpNotificationListener
 import com.newssphere.client.view.advanced_ui.showPopupNotification
 

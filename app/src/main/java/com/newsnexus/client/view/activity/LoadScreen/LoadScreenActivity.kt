@@ -2,11 +2,9 @@ package com.newsnexus.client.view.activity.LoadScreen
 
 import android.app.Activity
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.newsnexus.client.R
 import com.newsnexus.client.databinding.ActivityLoadScreenBinding

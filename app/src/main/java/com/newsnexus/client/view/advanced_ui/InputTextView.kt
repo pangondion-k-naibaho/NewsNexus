@@ -2,7 +2,6 @@ package com.newsnexus.client.view.advanced_ui
 
 import android.content.Context
 import android.text.Editable
-import android.text.Html
 import android.text.InputType
 import android.text.TextWatcher
 import android.text.method.HideReturnsTransformationMethod
@@ -14,7 +13,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
-import androidx.core.text.HtmlCompat
 import com.newsnexus.client.R
 import com.newsnexus.client.databinding.InputtextLayoutBinding
 import com.newsnexus.client.model.Extensions.Companion.dpToPx
@@ -70,7 +68,6 @@ class InputTextView: ConstraintLayout {
     }
 
     fun setTitle(inputTitle: String){
-//        val titleText =
         binding.tvTitle.text = inputTitle
     }
 
