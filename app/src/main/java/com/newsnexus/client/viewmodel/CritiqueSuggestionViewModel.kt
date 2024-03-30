@@ -9,6 +9,9 @@ import androidx.lifecycle.MutableLiveData
 import com.newsnexus.client.model.dataclass.dummy.CritiqueSuggestions
 import com.newsnexus.client.model.local.CnSDatabase
 import com.newsnexus.client.model.local.CnsDao
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class CritiqueSuggestionViewModel(application: Application):AndroidViewModel(application) {
     private val TAG = LoginViewModel::class.java.simpleName
@@ -22,17 +25,24 @@ class CritiqueSuggestionViewModel(application: Application):AndroidViewModel(app
     private var _isFail = MutableLiveData<Boolean>()
     val isFail: LiveData<Boolean> = _isFail
 
+    private var _isAddCnSSuccess = MutableLiveData<Boolean>()
+    val isAddCnSSuccess: LiveData<Boolean> = _isAddCnSSuccess
+
     private var _listCnS = MutableLiveData<List<CritiqueSuggestions>>()
     val listCnS: LiveData<List<CritiqueSuggestions>> = _listCnS
 
     fun addCritiquenSuggestion(inputCnS: CritiqueSuggestions){
         _isLoading.value = true
-        val handler = Handler(Looper.getMainLooper())
 
-        handler.postDelayed({
+        val work = CoroutineScope(Dispatchers.IO).launch {
             cnsDao?.addCnS(inputCnS)
-        }, 4000)
-        _isLoading.value = false
+        }
+
+        if(work.isCompleted){
+            _isLoading.value = false
+            _isAddCnSSuccess.value = true
+        }
+
     }
 
     fun getListCnS(){
@@ -40,7 +50,8 @@ class CritiqueSuggestionViewModel(application: Application):AndroidViewModel(app
         val handler = Handler(Looper.getMainLooper())
 
         handler.postDelayed({
-            val retrievedListCnS = cnsDao?.getListCnS()
+            val retrievedListCnS = cnsDao?.getListCnS()!!.value
+//            _listCnS.value = retrievedListCnS!!
             try {
                 _listCnS.value = retrievedListCnS!!
             }catch (e: NullPointerException){

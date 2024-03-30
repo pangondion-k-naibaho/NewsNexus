@@ -1,6 +1,7 @@
 package com.newsnexus.client.view.activity.CritiqueSugesstions
 
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
@@ -9,14 +10,23 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.ViewGroup
+import android.widget.PopupMenu.OnDismissListener
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.newsnexus.client.R
 import com.newsnexus.client.databinding.ActivityCritiqueSuggestionBinding
+import com.newsnexus.client.databinding.BottomsheetLayoutBinding
 import com.newsnexus.client.model.Constants
+import com.newsnexus.client.model.Extensions.Companion.dpToPx
+import com.newsnexus.client.model.dataclass.dummy.CritiqueSuggestions
 import com.newsnexus.client.view.adapter.ItemCnSAdapter
+import com.newsnexus.client.view.advanced_ui.InputTextView
 import com.newsnexus.client.viewmodel.CritiqueSuggestionViewModel
+import com.newssphere.client.view.advanced_ui.PopUpNotificationListener
+import com.newssphere.client.view.advanced_ui.showPopupNotification
 
 class CritiqueSuggestionActivity : AppCompatActivity() {
     private val TAG = CritiqueSuggestionActivity::class.java.simpleName
@@ -59,6 +69,7 @@ class CritiqueSuggestionActivity : AppCompatActivity() {
         })
 
         csViewModel.listCnS.observe(this@CritiqueSuggestionActivity, { listCnSResponse->
+            Log.d(TAG, "listCnSResponse: $listCnSResponse")
             if(!listCnSResponse.isNullOrEmpty()){
                 val rvAdapter = ItemCnSAdapter(listCnSResponse.toMutableList())
                 val rvLayoutManager = LinearLayoutManager(this@CritiqueSuggestionActivity)
@@ -104,11 +115,87 @@ class CritiqueSuggestionActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId){
             R.id.menu_addCnS ->{
-                Toast.makeText(this@CritiqueSuggestionActivity, "Implemented Soon", Toast.LENGTH_SHORT).show()
+                setUpBottomSheet()
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun setUpBottomSheet(){
+        val bottomSheetDialog = BottomSheetDialog(this@CritiqueSuggestionActivity)
+        val mBottomSheetDialog = BottomsheetLayoutBinding.inflate(layoutInflater, null, false)
+
+        val layoutParams = ViewGroup.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            600.dpToPx(this@CritiqueSuggestionActivity)
+        )
+
+        mBottomSheetDialog.root.layoutParams = layoutParams
+        bottomSheetDialog.setContentView(mBottomSheetDialog.root)
+
+        mBottomSheetDialog.itvCritique.apply {
+            setInputType(InputTextView.INPUT_TYPE.MULTILINE)
+            setTitle(getString(R.string.tvTitle_Critique))
+            setTextHelper(getString(R.string.tvHint_Critique))
+        }
+
+        mBottomSheetDialog.itvSuggestion.apply {
+            setInputType(InputTextView.INPUT_TYPE.MULTILINE)
+            setTitle(getString(R.string.tvTitle_Suggestion))
+            setTextHelper(getString(R.string.tvHint_Suggestion))
+        }
+
+        mBottomSheetDialog.btnLeft.apply {
+            setOnClickListener {
+                bottomSheetDialog.dismiss()
+            }
+        }
+
+        mBottomSheetDialog.btnRight.apply {
+            setOnClickListener {
+                val retrievedUsername = appPreferences.getString(Constants.PREFERENCES.USERNAME_KEY, null)
+                val retrievedCritique = mBottomSheetDialog.itvCritique.getText()
+                val retrievedSuggestion = mBottomSheetDialog.itvSuggestion.getText()
+
+                Log.d(TAG, "$retrievedUsername $retrievedCritique $retrievedSuggestion")
+
+                bottomSheetDialog.dismiss()
+                csViewModel.addCritiquenSuggestion(CritiqueSuggestions(retrievedUsername!!, retrievedCritique, retrievedSuggestion))
+
+                csViewModel.isAddCnSSuccess.observe(this@CritiqueSuggestionActivity, {
+                    setForPopUpDisplaying(true)
+                    this@CritiqueSuggestionActivity.showPopupNotification(
+                        textTitle = getString(R.string.tvPopupTitle_Success),
+                        textDesc = getString(R.string.tvPopupDesc_SuccessAddCnS),
+                        backgroundImage = R.drawable.ic_checklist_green,
+                        listener = object: PopUpNotificationListener{
+                            override fun onClickListener() {
+                                this@CritiqueSuggestionActivity.closeOptionsMenu()
+                                this@CritiqueSuggestionActivity.recreate()
+                            }
+                        }
+                    )
+                })
+            }
+
+        }
+
+        bottomSheetDialog.setOnCancelListener(object: DialogInterface.OnCancelListener{
+            override fun onCancel(dialog: DialogInterface?) {
+                this@CritiqueSuggestionActivity.recreate()
+            }
+
+        })
+
+        bottomSheetDialog.setOnDismissListener(object: DialogInterface.OnDismissListener{
+            override fun onDismiss(dialog: DialogInterface?) {
+                this@CritiqueSuggestionActivity.recreate()
+            }
+
+        })
+
+        bottomSheetDialog.show()
     }
 
     override fun onRestart() {

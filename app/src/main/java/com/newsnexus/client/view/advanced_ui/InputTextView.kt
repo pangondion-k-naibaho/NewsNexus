@@ -8,6 +8,7 @@ import android.text.TextWatcher
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.util.AttributeSet
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -70,7 +71,7 @@ class InputTextView: ConstraintLayout {
 
     fun setTitle(inputTitle: String){
 //        val titleText =
-        binding.tvTitle.text = HtmlCompat.fromHtml(inputTitle, HtmlCompat.FROM_HTML_MODE_COMPACT)
+        binding.tvTitle.text = inputTitle
     }
 
     fun getInputType(): String{
@@ -109,9 +110,14 @@ class InputTextView: ConstraintLayout {
             if(retrievedInputType == INPUT_TYPE.MULTILINE){
                 val updatedLayoutParams = ViewGroup.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT,
-                    85.dpToPx(mContext) // Convert dp to pixels
+                    100.dpToPx(mContext) // Convert dp to pixels
                 )
                 layoutParams = updatedLayoutParams
+                gravity = Gravity.START
+                minLines = 3
+                maxLines = 6
+                setHorizontallyScrolling(false)
+                setVerticalScrollBarEnabled(true)
             }
         }
         binding.ivAction.apply {

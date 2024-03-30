@@ -1,6 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_bottomsheet"
+    android:paddingHorizontal="15dp">
+
+    <View
+        android:id="@+id/vBottomSheet"
+        android:layout_width="60dp"
+        android:layout_height="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_rectangle_dustblu"/>
+
+    <TextView
+        android:id="@+id/tvAddCnSTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vBottomSheet"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/merriweather_regular"
+        android:textSize="14sp"
+        android:textColor="@color/mostly_metal"
+        android:text="@string/tvAddCnSTitle"/>
+
+    <com.newsnexus.client.view.advanced_ui.InputTextView
+        android:id="@+id/itvCritique"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddCnSTitle"
+        android:layout_marginTop="16dp"/>
+
+    <com.newsnexus.client.view.advanced_ui.InputTextView
+        android:id="@+id/itvSuggestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/itvCritique"
+        android:layout_marginTop="16dp"/>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnLeft"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnRight"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/bg_rectangle_socialist_white"
+        android:paddingVertical="5dp"
+        android:textAllCaps="false"
+        android:textColor="@color/socialist"
+        android:text="@string/btnTxt_Cancel"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnRight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/btnLeft"
+        app:layout_constraintStart_toEndOf="@+id/btnLeft"
+        app:layout_constraintTop_toTopOf="@+id/btnLeft"
+        android:layout_marginStart="4dp"
+        android:background="@drawable/bg_rectangle_socialist"
+        android:paddingVertical="5dp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:text="@string/btnTxt_Submit"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

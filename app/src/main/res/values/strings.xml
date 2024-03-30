@@ -33,6 +33,7 @@
     <string name="tvPopupDesc_Unauthorized">Please log in again to continue.</string>
     <string name="tvPopupTitle_FailRetrieve">Failed</string>
     <string name="tvPopupDesc_FailRetrieve">Failed to retrieved data</string>
+    <string name="tvPopupDesc_SuccessAddCnS">Success adding your Critique and Suggestion</string>
     <string name="tvMenu_home">Home</string>
     <string name="tvMenu_leads">Leads</string>
     <string name="tvMenu_shop">Shop</string>
@@ -102,4 +103,9 @@
     <string name="tvHint_Longitude">e.g 115.00003</string>
     <string name="tvHint_IDNumber">e.g 1879920xxxxxx</string>
     <string name="tvDataEmpty">There is no Comment &amp; Suggestion.\nAdd yours and we will display it here</string>
+    <string name="tvAddCnSTitle">Add Critique &amp; Suggestion</string>
+    <string name="tvTitle_Critique">Critique :</string>
+    <string name="tvTitle_Suggestion">Suggestion :</string>
+    <string name="tvHint_Critique">My critique is…</string>
+    <string name="tvHint_Suggestion">My Suggestion is…</string>
 </resources>
